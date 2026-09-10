@@ -31,7 +31,7 @@ Developed and Created by **sohyp**.
 ---
 
 ## 📦 Getting Started
-If you have a GIT you can download it by this command "git clone https://github.com/WAS-W/NovaX-framework/tree/master"
+If you have a GIT you can download it by this command "git clone -b master https://github.com/WAS-W/NovaX-framework.git"
 
 Let's see example for NovaX.JS
 ```js
