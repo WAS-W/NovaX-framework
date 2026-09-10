@@ -1,0 +1,74 @@
+import { Box, Heading, TextField, Button, RandomList, ListEl, Span } from "https://cdn.jsdelivr.net/gh/was-w/NovaX-framework@main/src/components/index.js";
+
+export function TodoApp() {
+    let todos = [];
+    let currentInputText = "";
+
+    const listContainer = RandomList({ style: "list-style: none; padding: 0; margin-top: 20px;" }, "");
+
+    function renderTodos() {
+        listContainer.innerHTML = ""; 
+
+        todos.forEach((todo, index) => {
+            const item = ListEl({}, "display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee;",
+                Span({ 
+                    text: todo.text, 
+                    style: todo.completed ? "text-decoration: line-through; color: #888;" : "" 
+                }),
+                Box("display: flex; gap: 8px;", {},
+                    Button({
+                        text: todo.completed ? "Undo" : "Done",
+                        onPress: () => {
+                            todos[index].completed = !todos[index].completed;
+                            renderTodos();
+                        }
+                    }, "background: #4caf50; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;"),
+                    Button({
+                        text: "Delete",
+                        onPress: () => {
+                            todos.splice(index, 1);
+                            renderTodos();
+                        }
+                    }, "background: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;")
+                )
+            );
+            listContainer.appendChild(item);
+        });
+    }
+
+    const inputField = TextField({
+        holder: "Add a new task...",
+        onInput: (e) => {
+            currentInputText = e.target.value;
+        },
+        onKey: (e) => {
+            if (e.key === "Enter" && currentInputText.trim() !== "") {
+                todos.push({ text: currentInputText.trim(), completed: false });
+                inputField.value = "";
+                currentInputText = "";
+                renderTodos();
+            }
+        }
+    }, "padding: 10px; width: 70%; border: 1px solid #ccc; border-radius: 4px; outline: none;");
+
+    const addButton = Button({
+        text: "Add Task",
+        onPress: () => {
+            if (currentInputText.trim() !== "") {
+                todos.push({ text: currentInputText.trim(), completed: false });
+                inputField.value = "";
+                currentInputText = "";
+                renderTodos();
+            }
+        }
+    }, "padding: 10px 15px; background: #2196f3; color: white; border: none; border-radius: 4px; cursor: pointer;");
+
+    return Box("max-width: 450px; margin: 50px auto; padding: 20px; font-family: Arial, sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; background: #fff;", {},
+        Heading(2, { text: "📝 NovaX.JS To-Do List" }, "text-align: center; color: #333; margin-bottom: 20px;"),
+        Box("display: flex; gap: 10px; justify-content: center;", {},
+            inputField,
+            addButton
+        ),
+        listContainer
+    );
+}

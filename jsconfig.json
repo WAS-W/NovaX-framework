@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@effects/*": ["src/effects/*"],
+      "@router/*": ["src/router/*"],
+      "@state/*": ["src/state/*"],
+      "@src/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*", "examples/**/*"]
+}
