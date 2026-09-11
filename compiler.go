@@ -13,10 +13,10 @@ import (
 	"strings"
 )
 
-const repoCDN = "https://raw.githack.com/was-w/NovaX-framework/master/src/components/index.js"
-const secondRepoCDN = "https://raw.githack.com/was-w/NovaX-framework/master/src/stater/state.js"
-const thisdCDN = "https://raw.githack.com/was-w/NovaX-framework/master/src/router/router.js"
-const fourthCDN = "https://raw.githack.com/was-w/NovaX-framework/master/src/effects/effect.js"
+const repoCDN = "https://cdn.jsdelivr.net/gh/was-w/NovaX-framework@master/src/components/index.js/+esm"
+const secondRepoCDN = "https://cdn.jsdelivr.net/gh/was-w/NovaX-framework@master/src/state/stater.js/+esm"
+const thisdCDN = "https://cdn.jsdelivr.net/gh/was-w/NovaX-framework@master/src/router/router.js/+esm"
+const fourthCDN = "https://cdn.jsdelivr.net/gh/was-w/NovaX-framework@master/src/effects/effect.js/+esm"
 
 func main() {
 	dirPtr := flag.String("dir", ".", "Project directory path")

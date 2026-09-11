@@ -5,6 +5,6 @@ export * from "./component.js";
 export * from "./box.js";
 export * from "./button.js";
 export * from "./inputs.js";
-export * from "./components.js"
+export * from "./component.js"
 export * from "./list.js";
 export * from "./text.js";
