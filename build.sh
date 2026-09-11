@@ -17,11 +17,11 @@ GOOS=darwin GOARCH=amd64 go build -o novax-darwin-amd64 compiler.go
 echo "builded successfully !"
 
 echo "remiving ..."
-git rm -r novax-linux86
-git rm -r novax-linux64
-git rm -r novax-win32.exe
-git rm -r novax-win64.exe
-git rm -r novax-darwin-amd64
+git rm novax-linux86
+git rm novax-linux64
+git rm novax-win32.exe
+git rm novax-win64.exe
+git rm novax-darwin-amd64
 
 echo "pushing canges ..."
 git add .
